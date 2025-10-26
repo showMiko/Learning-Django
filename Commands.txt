@@ -1,0 +1,13 @@
+django-admin startproject -- Used at first
+python manage.py runserver 8001 -- The Port no is optional
+
+manage.py is the starting point
+db.sqlite3 is the default DB.
+
+settings.py is the config files
+urls.py is the routes files --> This handles the routing. 
+
+
+in the views files we add the functions of the routes. Bacisally the controllers. 
+
+WE add routes in the manage.py files.
