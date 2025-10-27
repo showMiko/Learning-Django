@@ -1,13 +1,26 @@
 django-admin startproject -- Used at first
+python manage.py startapp <appname>  -- Used for creaing Apps
 python manage.py runserver 8001 -- The Port no is optional
-
 manage.py is the starting point
 db.sqlite3 is the default DB.
-
 settings.py is the config files
 urls.py is the routes files --> This handles the routing. 
 
+Django has one Project and Multiple Apps. 
 
 in the views files we add the functions of the routes. Bacisally the controllers. 
-
 WE add routes in the manage.py files.
+
+
+After Creating the app -->
+1. First Step is to make sure the project knows app is made.
+2. in settings.py we need to make sure, the app is present. we nee to add it.
+3. After we are done now we can go into the new app and create templates folder.
+4. we dont need to add this file again to the settings since it's alreay done.
+5. we may choose to create subfolders under this.
+6. app doesnot have urls.py. So we will create One.
+7. The main Urls.py file need to know that there are sub url files in each app.
+8. The control needs to pass from the main urls.py to app urls.py
+9. In main urls.py we will import 'include'
+10. we nned to add a new route like this path('basics/', include('basics.urls'))
+11. This Transfers the controls to the APP.
