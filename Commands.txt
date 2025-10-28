@@ -6,6 +6,11 @@ db.sqlite3 is the default DB.
 settings.py is the config files
 urls.py is the routes files --> This handles the routing. 
 
+uv pip install django-tailwind
+uv pip install 'django-tailwind[reload]'
+python -m ensurepip --upgrade (if pip is not present)
+
+
 Django has one Project and Multiple Apps. 
 
 in the views files we add the functions of the routes. Bacisally the controllers. 
@@ -24,3 +29,24 @@ After Creating the app -->
 9. In main urls.py we will import 'include'
 10. we nned to add a new route like this path('basics/', include('basics.urls'))
 11. This Transfers the controls to the APP.
+
+
+
+Layouts-->
+1. Basically a Common File Where we can use the content with variables
+2. Dynamic rendering at different pages
+3. for eg Navbar, we can make it here, and then we can get navbar at all places.
+
+
+Tailwind Setup -->
+1. Add a new app to the settings.py (tailwind)
+2. python manage.py tailwind init
+3. Add a new app to the settings.py (theme)
+4. In settings.py --> TAILWIND_APP_NAME = 'theme' 
+                      INTERNAL_IPS = ['127.0.0.1']
+5.Install Tailwind python manage.py tailwind install
+6. If the above fails we need to point Django to our location of the installed Node. 
+7. In setting.py paste --> NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+8. If node is present in a different path we can find it by using the 'where.exe npm' command 
+9. In a seperate terminal we need to start tailwind.
+10. python manage.py tailwind start
