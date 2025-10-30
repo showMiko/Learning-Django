@@ -50,3 +50,37 @@ Tailwind Setup -->
 8. If node is present in a different path we can find it by using the 'where.exe npm' command 
 9. In a seperate terminal we need to start tailwind.
 10. python manage.py tailwind start
+11. For Prod python manage.py tailwind build
+12. For Hot Reloading we need to add to Middleware and App. Installed_apps --> 'django_browser_reload', Middleware-->  "django_browser_reload.middleware.BrowserReloadMiddleware"
+13. We also need to add an url to the main urls.py -->    path("__reload__/", include("django_browser_reload.urls")),
+
+
+Now For the Migration -->
+1. python manage.py migrate --> What this does is link DB and other things to the admin.
+2. In Django we do not direcly talk to the DBs. We communicate via ORM.
+3. we will create a superuser python manage.py createsuperuser
+4. username: soumi  Soumik@2002# -->password
+
+
+
+Databases -->
+1. We follow norms to create DBs and models in apps not in project.
+2. We will be creating a class with fields and datatypes.
+3. For images we need to install Pillow.
+4. python -m pip install Pillow
+5. For storing URLS we need to tell settings where to store.
+6. MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+7. from django.conf import settings
+from django.conf.urls.static import static ---> We need this two settings in URLs.py of project.
+8. What this does is, it is used to tell urls, from settings, import the media URLS. 
+9. static (settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) append it to the end of the array of urlpatterns.
+10. Now we need to migrate again. Here we need two commands. 
+11. Previously since everything was created we did only one command.
+12. python manage.py makemigrations basics --> Its good practice to specify appname
+13. It has created a migration folder and inside we have a init.
+14. there basically everything is written the way we interact with SQL or other DB. 
+15. Django behind the scene writes all sql commands.
+16. we have a admin.py inside the app.
+17. what this does is, it connects the Model with the admin panel of Django
+18. Import the Model from .model and register it using admin.site.register(Item)
