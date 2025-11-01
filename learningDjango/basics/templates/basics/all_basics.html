@@ -21,6 +21,9 @@
                         {% endif %}
                     </div>
                 </div>
+                <a href="{% url 'item_details' item.id %}">
+                    <button type="button" class="text-300 bg-green-200 text-sm font-medium w-50 p-5 m-2 rounded-full">{{item.price}}</button>
+                </a>
             </div>
         {% endfor %}
     </div>

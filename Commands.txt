@@ -84,3 +84,4 @@ from django.conf.urls.static import static ---> We need this two settings in URL
 16. we have a admin.py inside the app.
 17. what this does is, it connects the Model with the admin panel of Django
 18. Import the Model from .model and register it using admin.site.register(Item)
+19. EveryTime there is a change in the DB, Creating of a New field for say, we need to run both the migrate commands once again.
