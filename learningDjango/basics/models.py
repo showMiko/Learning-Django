@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 class Item(models.Model):
 
@@ -21,3 +22,33 @@ class Item(models.Model):
     
     def __str__(self):
         return self.name
+    
+
+# One to many
+class Review(models.Model):
+    item=models.ForeignKey(Item, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(User,on_delete=models.CASCADE, related_name='user_reviews')
+    rating=models.IntegerField()
+    comment=models.TextField()
+    date_created=models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'Review for {self.item.name} by {self.user.username}'
+
+# Many to Many
+class Tag(models.Model):
+    name=models.CharField(max_length=50)
+    items=models.ManyToManyField(Item, related_name='tags')
+
+    def __str__(self):
+        return self.name 
+    
+# One to One 
+class ItemDetail(models.Model):
+    item=models.OneToOneField(Item, on_delete=models.CASCADE, related_name='detail')
+    manufacturer=models.CharField(max_length=100)
+    warranty_period=models.IntegerField(help_text='Warranty period in months')
+    additional_info=models.TextField()
+
+    def __str__(self):
+        return f'Details of {self.item.name}'
