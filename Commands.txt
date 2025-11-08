@@ -87,3 +87,11 @@ from django.conf.urls.static import static ---> We need this two settings in URL
 19. EveryTime there is a change in the DB, Creating of a New field for say, we need to run both the migrate commands once again.
 
 
+Forms in Django --
+1. Create a forms files --> forms.py
+2. Attach the froms to a model.
+3. We will create a class and pass Forms as param.
+4. we will create a field with form.ModelChoiceField. Django knows that Choice field means a dropdown.
+5. Django handles the rendering and submitting of forms in the same way.
+6. So we can wrtie a simple views and Do the processing based on weather it is a post request or get request.
+7. 
